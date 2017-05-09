@@ -7,6 +7,7 @@
     "react-dom": "^15.5.4"
   },
   "devDependencies": {
+    "now": "^5.2.3",
     "react-scripts": "0.9.5"
   },
   "scripts": {

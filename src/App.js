@@ -19,6 +19,9 @@ class App extends Component {
     this.setShowReply=this.setShowReply.bind(this);
     this.updateReplyText=this.updateReplyText.bind(this);
     this.postReply=this.postReply.bind(this);
+    this.weburl = 'https://server-qpsqbgqmra.now.sh/comments';
+    //https://server-qpsqbgqmra.now.sh:3001/comments
+    //http://127.0.0.1:3001/comments
   }
   findTarget(array, key){
     for (let i = 0, l = array.length; i < l; i++) {
@@ -37,7 +40,7 @@ class App extends Component {
         throw error;
       }
     }
-    fetch('http://127.0.0.1:3001/comments')
+    fetch(this.weburl)
       .then(checkStatus)
       .then(response=>response.json())
       .then(resObj=>{
@@ -112,7 +115,7 @@ class App extends Component {
         'replyText': "",
       }
     )
-    fetch('http://127.0.0.1:3001/comments', {
+    fetch(this.weburl, {
       method: 'post',
       headers: {
         'Accept': 'application/json',
@@ -155,7 +158,7 @@ class App extends Component {
     })
 
     // actual post
-    fetch('http://127.0.0.1:3001/comments', {
+    fetch(this.weburl, {
       method: 'post',
       headers: {
         'Accept': 'application/json',
